@@ -1,8 +1,27 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
+        <title>HTML연습</title>
+        <style>
+            .emoji {
+                position:absolute;
+                font-weight:900;
+                font-size: 150pt;
+                left:50px;
+                top:50px;
+                transition-duration: 1s;
+                transition-timing-function: ease;
+                transition-delay: 0s;
+            }
+            .emoji:hover {
+                transform:translate(50px, 50px) rotate(180deg) ;
+                font-weight:100;
+            }
+        </style>
     </head>
     <body>
-        Aaaaa
+        <div class="emoji">hello</div>
+
+        <!--img class = "emoji" src = "smile.png" onClick="hoho();"-->
     </body>
 </html>
