@@ -1,27 +1,78 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        <title>HTML연습</title>
-        <style>
-            .emoji {
-                position:absolute;
-                font-weight:900;
-                font-size: 150pt;
-                left:50px;
-                top:50px;
-                transition-duration: 1s;
-                transition-timing-function: ease;
-                transition-delay: 0s;
-            }
-            .emoji:hover {
-                transform:translate(50px, 50px) rotate(180deg) ;
-                font-weight:100;
-            }
-        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></metaname>
+        <title> beans </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
+
     </head>
     <body>
-        <div class="emoji">hello</div>
+        <!-- <div id="b" onClick="clickFunc()">CHANGE!</div> -->
+        <script>
+        let size = 8;
+        let modules = [];
 
-        <!--img class = "emoji" src = "smile.png" onClick="hoho();"-->
+        function setup (){
+        createCanvas (windowWidth,windowHeight);
+        background(220);
+        
+        
+
+        
+        
+        }
+
+        function draw(){
+        background(220,100);
+        modules.forEach(module); 
+
+        
+        textSize(20);
+        
+        //LEFT, RIGHT, CENTER
+        //TOP, BOTTOM, CENTER
+        textAlign(CENTER,CENTER);
+        
+        fill(0,0,0);
+        stroke(0,0,0);
+        strokeWeight(1);
+        
+        //BOLD,ITALIC <- 합쳐도 가능
+        // textStyle(BOLDITALIC);
+        
+        // "입력하려는 문자열", x, y <- text 변수
+        text ("beans\npress the space",width/2, height/8);
+        }
+
+        function keyPressed(){
+        size = size + 5;
+        }
+        function mousePressed(){
+        let mx = snap (mouseX);
+        let my = snap (mouseY);
+        modules.push({x:mx,y:my}); //modules 안에 변수 넣기
+        }
+
+        function module(position){
+        rectMode(CENTER);
+        let randomx = random(-2,2);
+        let randomy = random(-2,2);
+        position.y = position.y - 1;
+        position.x = position.x - 1;
+
+        let palette = ["#386641","#6A994E","#A7C957"]
+        fill(random(palette));
+        noStroke();
+        rect( position.x + randomx, 
+                position.y + randomy, 
+                size, 
+                size,20); 
+        }
+
+        function snap (value){
+        return floor (value / size) * size + size/2;
+        }
+        </script>
     </body>
 </html>
